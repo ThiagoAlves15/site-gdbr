@@ -5,10 +5,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import api.dao.ClienteDAO;
 import java.util.ArrayList;
+import api.dao.ContatoDAO;
 
-public class ClienteDAOMariaDB implements ClienteDAO{
+public class ClienteDAOMariaDB implements ContatoDAO{
     Connection conexao;
     public ClienteDAOMariaDB(){
         try{

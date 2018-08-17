@@ -2,15 +2,15 @@ package core.servico;
 
 import api.modelo.Cliente;
 import core.dao.ClienteDAOMariaDB;
-import api.dao.ClienteDAO;
 import api.servico.ServicoCliente;
 import java.util.ArrayList;
+import api.dao.ContatoDAO;
 
 public class ServicoClienteImpl implements ServicoCliente {
 
     @Override
     public Cliente insert(Cliente cliente) {
-        ClienteDAO pDao = new ClienteDAOMariaDB();
+        ContatoDAO pDao = new ClienteDAOMariaDB();
         return pDao.insert(cliente);
     }
     
@@ -21,21 +21,21 @@ public class ServicoClienteImpl implements ServicoCliente {
 
     @Override
     public ArrayList<Cliente> findByNomeCliente(Long parenteId, String nome) {
-        ClienteDAO cDao = new ClienteDAOMariaDB();
+        ContatoDAO cDao = new ClienteDAOMariaDB();
         ArrayList<Cliente> cList = cDao.findByNomeCliente(parenteId,nome);
         return cList;
     }
     
     @Override
     public ArrayList<Cliente> findByIdParente(Long id){
-        ClienteDAO cDao = new ClienteDAOMariaDB();
+        ContatoDAO cDao = new ClienteDAOMariaDB();
         ArrayList<Cliente> cList = cDao.findByIdParente(id);
         return cList;
     }
     
     @Override
     public boolean delete(Long id) {
-        ClienteDAO pDao = new ClienteDAOMariaDB();
+        ContatoDAO pDao = new ClienteDAOMariaDB();
         return pDao.delete(id);
     } 
 }
