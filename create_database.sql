@@ -9,12 +9,12 @@ email_administrador VARCHAR(100) NOT NULL,
 PRIMARY KEY (id_administrador)
 );
 
-CREATE TABLE IF NOT EXISTS imagens (
-id_imagem INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-caminho_imagem VARCHAR(100) NOT NULL,
-criado_em_imagem DATE NOT NULL,
+CREATE TABLE IF NOT EXISTS postagens (
+id_postagem INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+caminho_imagem_postagem VARCHAR(100) NOT NULL,
+criado_em_postagem DATE NOT NULL,
 administrador_id INTEGER UNSIGNED NOT NULL,
-PRIMARY KEY (id_imagem),
+PRIMARY KEY (id_postagem),
 FOREIGN KEY (administrador_id) REFERENCES administradores(id_administrador)
 );
 
