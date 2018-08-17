@@ -1,8 +1,8 @@
 package web.servlet;
 
-import api.modelo.Parente;
-import api.servico.ServicoParente;
-import core.servico.ServicoParenteImpl;
+import api.modelo.Administrador;
+import api.servico.ServicoAdministrador;
+import core.servico.ServicoAdministradorImpl;
 import java.io.IOException;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -19,16 +19,16 @@ public class Home extends HttpServlet {
         ServletContext sc = req.getServletContext();
         try {
             HttpSession session = req.getSession();
-            ServicoParente sParente = new ServicoParenteImpl();
-            Parente pBD = sParente.findByLogin("DonaMaria");
+            ServicoAdministrador sAdministrador = new ServicoAdministradorImpl();
+            Administrador pBD = sAdministrador.findByLogin("DonaMaria");
             
-            session.setAttribute("parenteId", pBD.getId());
+            session.setAttribute("administradorId", pBD.getId());
             session.setAttribute("whats", pBD.getWhats());
             session.setAttribute("email", pBD.getEmail());
-            System.out.println("a sessao aqui o: "+session.getAttribute("parenteId"));
+            System.out.println("a sessao aqui o: "+session.getAttribute("administradorId"));
             System.out.println("a whats aqui o: "+session.getAttribute("whats"));
             System.out.println("a email aqui o: "+session.getAttribute("email"));
-            if (session.getAttribute("parenteId") != null) {
+            if (session.getAttribute("administradorId") != null) {
                 sc.getRequestDispatcher("/dynamic/jsp/index.jsp").forward(req, resp);
             }
         } catch(Exception e) {

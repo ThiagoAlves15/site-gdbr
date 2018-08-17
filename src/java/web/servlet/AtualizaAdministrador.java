@@ -1,7 +1,7 @@
 package web.servlet;
 
-import api.servico.ServicoParente;
-import core.servico.ServicoParenteImpl;
+import api.servico.ServicoAdministrador;
+import core.servico.ServicoAdministradorImpl;
 import java.io.IOException;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -11,24 +11,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "AtualizaParente", urlPatterns = {"/atualiza-parente"})
-public class AtualizaParente extends HttpServlet {
+@WebServlet(name = "AtualizaAdministrador", urlPatterns = {"/atualiza-administrador"})
+public class AtualizaAdministrador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContext sc = req.getServletContext();
         
         HttpSession session = req.getSession();
-        Long a = (Long) session.getAttribute("parenteId");
+        Long a = (Long) session.getAttribute("administradorId");
         
-        System.out.println("aqui o session no atualiza parente: " + a);
+        System.out.println("aqui o session no atualiza administrador: " + a);
         
-        Long parenteId = a;
+        Long administradorId = a;
         String whats = req.getParameter("whats");
         String email = req.getParameter("email");
         
-        ServicoParente sPar = new ServicoParenteImpl();
+        ServicoAdministrador sPar = new ServicoAdministradorImpl();
 
-        sPar.update(parenteId, whats, email);
+        sPar.update(administradorId, whats, email);
         sc.getRequestDispatcher("/dynamic/jsp/config.jsp").forward(req, resp);
     }
 }

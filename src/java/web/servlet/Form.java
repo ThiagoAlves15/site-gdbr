@@ -1,11 +1,11 @@
 package web.servlet;
 
-import api.modelo.Cliente;
-import api.modelo.Parente;
-import api.servico.ServicoCliente;
-import api.servico.ServicoParente;
-import core.servico.ServicoClienteImpl;
-import core.servico.ServicoParenteImpl;
+import api.modelo.Contato;
+import api.modelo.Administrador;
+import api.servico.ServicoContato;
+import api.servico.ServicoAdministrador;
+import core.servico.ServicoContatoImpl;
+import core.servico.ServicoAdministradorImpl;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.ServletContext;
@@ -23,11 +23,11 @@ public class Form extends HttpServlet {
         ServletContext sc = req.getServletContext();
         try {
             HttpSession session = req.getSession();
-            ServicoParente sParente = new ServicoParenteImpl();
-            Parente pBD = sParente.findByLogin("DonaMaria");
+            ServicoAdministrador sAdministrador = new ServicoAdministradorImpl();
+            Administrador pBD = sAdministrador.findByLogin("Grazi");
             
-            session.setAttribute("parenteId", pBD.getId());
-            System.out.println("a sessao aqui o no form: "+session.getAttribute("parenteId"));
+            session.setAttribute("administradorId", pBD.getId());
+            System.out.println("a sessao aqui o no form: "+session.getAttribute("administradorId"));
             sc.getRequestDispatcher("/dynamic/jsp/form.jsp").forward(req, resp);
         } catch(Exception e) {
             System.out.println("exceçao form");
@@ -43,20 +43,20 @@ public class Form extends HttpServlet {
         resp.setHeader("Cache-Control", "nocache");
         
         HttpSession session = req.getSession();
-        Long a = (Long) session.getAttribute("parenteId");
+        Long a = (Long) session.getAttribute("administradorId");
         
         System.out.println("aqui o session no form: " + a);
         
-        Long parenteId = a;
-        String nome = req.getParameter("nome_cliente");
-        String email = req.getParameter("email_cliente");
-        String telefone = req.getParameter("telefone_cliente");
-        String celular = req.getParameter("celular_cliente");
-        String mensagem = req.getParameter("mensagem_cliente");
+        Long administradorId = a;
+        String nome = req.getParameter("nome_contato");
+        String email = req.getParameter("email_contato");
+        String telefone = req.getParameter("telefone_contato");
+        String celular = req.getParameter("celular_contato");
+        String mensagem = req.getParameter("mensagem_contato");
         
-        ServicoCliente sCli = new ServicoClienteImpl();
-        Cliente cliente = new Cliente(nome, email, telefone, celular, mensagem, parenteId);
-        sCli.insert(cliente);
+        ServicoContato sCli = new ServicoContatoImpl();
+        Contato contato = new Contato(nome, email, telefone, celular, mensagem, administradorId);
+        sCli.insert(contato);
         
         sc.getRequestDispatcher("/dynamic/jsp/index.jsp").forward(req, resp);
     }

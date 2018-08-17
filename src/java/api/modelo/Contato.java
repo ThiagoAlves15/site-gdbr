@@ -2,31 +2,31 @@ package api.modelo;
 
 import java.util.List;
 
-public class Cliente extends Identificador {
+public class Contato extends Identificador {
     private Long id;
     private String nome;
     private String email;
     private String telefone; 
     private String celular; 
     private String mensagem;
-    private Long parenteId;
+    private Long administradorId;
     
-    public Cliente(){}
-    public Cliente(String nome, String email, String telefone, String celular, String mensagem, Long parenteId){
+    public Contato(){}
+    public Contato(String nome, String email, String telefone, String celular, String mensagem, Long administradorId){
         this.setNome(nome);
         this.setEmail(email);
         this.setTelefone(telefone);
         this.setCelular(celular);
         this.setMensagem(mensagem);
-        this.setParente(parenteId);          
+        this.setAdministrador(administradorId);          
     }
 
-    public Long getParente() {
-        return parenteId;
+    public Long getAdministrador() {
+        return administradorId;
     }
 
-    public void setParente(Long parenteId) {
-        this.parenteId = parenteId;
+    public void setAdministrador(Long administradorId) {
+        this.administradorId = administradorId;
     }
 
     public String getNome() {

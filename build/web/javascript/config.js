@@ -14,16 +14,16 @@ function procurarPorFoto(){
   return false;
 }
 
-function deletarImagem(selecao){
+function deletarPostagem(selecao){
   $.ajax({
-    'url': '/Artemanha/deleta-imagem',
+    'url': '/GDBR/deleta-postagem',
     'method': 'POST',
     'data': {
         'id': selecao
     }
   }).done(function(data) {
-    alert('Imagem deletada!');
-    location.href = '/Artemanha/config';
+    alert('Postagem deletada!');
+    location.href = '/GDBR/config';
   });
 }
 
@@ -63,17 +63,17 @@ window.onload = function(){
   });
   
   $.ajax({
-    'url': '/Artemanha/imagens-parente',
+    'url': '/GDBR/postagens',
     'method': 'GET',
   }).done(function(data) {
     let imgsHTML = "";
-    let imagens = data.imagens;
-    console.log(imagens);
-    for (let i = 0, size = imagens.length; i < size; i++) {
-        if (!imagens[i]) { continue; }
-        console.log(imagens[i]);
+    let postagens = data.postagens;
+    console.log(postagens);
+    for (let i = 0, size = postagens.length; i < size; i++) {
+        if (!postagens[i]) { continue; }
+        console.log(postagens[i]);
         imgsHTML += `
-          <img class="imagens__todas" id="${imagens[i].caminho_imagem}" src="/Artemanha/assets/imgs/${imagens[i].caminho_imagem}" onclick="deletarImagem(${imagens[i].id})">
+          <img class="postagens__todas" id="${postagens[i].caminho_imagem_postagem}" src="/GDBR/assets/imgs/${postagens[i].caminho_imagem_postagem}" onclick="deletarImagem(${postagens[i].id})">
         `
     }
     $('.showcase__background').append(imgsHTML);

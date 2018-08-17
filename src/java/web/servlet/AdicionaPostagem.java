@@ -1,9 +1,9 @@
 package web.servlet;
 
-import api.modelo.Imagem;
-import api.modelo.Parente;
-import api.servico.ServicoImagem;
-import core.servico.ServicoImagemImpl;
+import api.modelo.Postagem;
+import api.modelo.Administrador;
+import api.servico.ServicoPostagem;
+import core.servico.ServicoPostagemImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "AdicionaImagem", urlPatterns = {"/adiciona-imagem"})
-public class AdicionaImagem extends HttpServlet {
+@WebServlet(name = "AdicionaPostagem", urlPatterns = {"/adiciona-postagem"})
+public class AdicionaPostagem extends HttpServlet {
    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException, ServletException, IOException {
@@ -31,17 +31,17 @@ public class AdicionaImagem extends HttpServlet {
         resp.setHeader("Cache-Control", "nocache");
         
         HttpSession session = req.getSession();
-        Long a = (Long) session.getAttribute("parenteId");
+        Long a = (Long) session.getAttribute("administradorId");
         
-        System.out.println("aqui o session no adiciona imagem: " + a);
+        System.out.println("aqui o session no adiciona Postagem: " + a);
         
-        Long parenteId = a;
+        Long administradorId = a;
         String caminho = req.getParameter("caminho");
         Timestamp criadoEm = new java.sql.Timestamp(new Date().getTime());
         
-        ServicoImagem sImg = new ServicoImagemImpl();
-        Imagem imagem = new Imagem(caminho, criadoEm, parenteId);
-        sImg.insert(imagem);
+        ServicoPostagem sImg = new ServicoPostagemImpl();
+        Postagem postagem = new Postagem(caminho, criadoEm, administradorId);
+        sImg.insert(postagem);
         
         sc.getRequestDispatcher("/dynamic/jsp/config.jsp").forward(req, resp);
     }

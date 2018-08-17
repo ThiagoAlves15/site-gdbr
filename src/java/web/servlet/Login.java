@@ -1,8 +1,8 @@
 package web.servlet;
 
-import api.modelo.Parente;
-import api.servico.ServicoParente;
-import core.servico.ServicoParenteImpl;
+import api.modelo.Administrador;
+import api.servico.ServicoAdministrador;
+import core.servico.ServicoAdministradorImpl;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.ServletContext;
@@ -36,8 +36,8 @@ public class Login extends HttpServlet {
         System.out.println("login: " + login);
         System.out.println("senha: " + senha);
         
-        ServicoParente sPar = new ServicoParenteImpl();
-        Parente p = sPar.findByLogin(login);
+        ServicoAdministrador sPar = new ServicoAdministradorImpl();
+        Administrador p = sPar.findByLogin(login);
         
         System.out.println(p);
         
@@ -46,8 +46,8 @@ public class Login extends HttpServlet {
         
         if (p != null && p.getSenha().equals(senha)) {
             try {
-                session.setAttribute("parenteLogado", p);
-                session.setAttribute("nome_parente", p.getLogin());
+                session.setAttribute("administradorLogado", p);
+                session.setAttribute("nome_administrador", p.getLogin());
                 sc.getRequestDispatcher("/config").forward(req, resp);
             } catch(Exception e) {
                System.out.println("erro ao comunicar com servidor.");

@@ -2,16 +2,16 @@ package api.modelo;
 
 import java.sql.Timestamp;
 
-public class Imagem extends Identificador { 
+public class Postagem extends Identificador { 
     private Long id;
     private String caminho;
     private Timestamp criadoEm;  
-    private Long parenteId;
+    private Long administradorId;
     
-    public Imagem() {}
-    public Imagem(String caminho, Timestamp criadoEm, Long parenteId){
+    public Postagem() {}
+    public Postagem(String caminho, Timestamp criadoEm, Long administradorId){
        this.setCaminho(caminho);
-       this.setParente(parenteId);
+       this.setAdministrador(administradorId);
        this.setCriadoEm(criadoEm);
     }    
 
@@ -23,12 +23,12 @@ public class Imagem extends Identificador {
         this.caminho = caminho;
     }
 
-    public Long getParente() {
-        return parenteId;
+    public Long getAdministrador() {
+        return administradorId;
     }
 
-    public void setParente(Long parenteId) {
-        this.parenteId = parenteId;
+    public void setAdministrador(Long administradorId) {
+        this.administradorId = administradorId;
     }
 
     public Timestamp getCriadoEm() {

@@ -15,9 +15,9 @@
     <body>
       <div class="container">
         <div class="container header">
-          <label for="upload">Upload de imagens para página principal</label>
+          <label for="upload">Upload de postagens para página principal</label>
         </div>
-        <form id="form_upload" name="form_upload" action="${pageContext.request.contextPath}/adiciona-imagem" method="post">
+        <form id="form_upload" name="form_upload" action="${pageContext.request.contextPath}/adiciona-postagem" method="post">
           <label for="up">Caminho da foto:</label>
           <input type="file" name="caminho" id="up" required>
           <button id="upload" type="submit">Enviar Dados</button>
@@ -27,7 +27,7 @@
         <div class="container header">
           <label for="dados">Alterar seus dados de contato</label>
         </div>
-        <form id="form_dados" name="form_dados" action="${pageContext.request.contextPath}/atualiza-parente" method="post">
+        <form id="form_dados" name="form_dados" action="${pageContext.request.contextPath}/atualiza-administrador" method="post">
           <label for="login">Login:</label>
           <input type="text" placeholder="Login" name="login" id="login" maxlength="50">
           <label for="whats">WhatsApp:</label>

@@ -11,6 +11,8 @@ PRIMARY KEY (id_administrador)
 
 CREATE TABLE IF NOT EXISTS postagens (
 id_postagem INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+titulo_postagem VARCHAR(300) NOT NULL,
+texto_postagem VARCHAR(5000) NOT NULL,
 caminho_imagem_postagem VARCHAR(100) NOT NULL,
 criado_em_postagem DATE NOT NULL,
 administrador_id INTEGER UNSIGNED NOT NULL,

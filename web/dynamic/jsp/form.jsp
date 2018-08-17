@@ -14,18 +14,18 @@
       <h2>Formulário para contato:</h2>
       <form id="form_id" name="myform" action="${pageContext.request.contextPath}/form" method="post">
         <label for="name">Nome Completo *</label>
-        <input type="text" placeholder="Nome Completo" name="nome_cliente" id="name" required>
+        <input type="text" placeholder="Nome Completo" name="nome_contato" id="name" required>
         <div class="tipo-contato">
           <p class="mensgem-vermelha">Preencha pelo menos um dos tipos de contato abaixo:</p>
           <label for="email">Email</label>
-          <input type="email" placeholder="name@email.com.br" name="email_cliente" id="email">
+          <input type="email" placeholder="name@email.com.br" name="email_contato" id="email">
           <label for="telefone">Telefone</label>
-          <input type="tel" placeholder="(xx)xxxx-xxxx" name="telefone_cliente" id="telefone" maxlength="14">
+          <input type="tel" placeholder="(xx)xxxx-xxxx" name="telefone_contato" id="telefone" maxlength="14">
           <label for="celular">Celular</label>
-          <input type="tel" placeholder="(xx)xxxxx-xxxx" name="celular_cliente" id="celular" maxlength="15">
+          <input type="tel" placeholder="(xx)xxxxx-xxxx" name="celular_contato" id="celular" maxlength="15">
         </div>
         <label for="mensagem">Mensagem *</label>
-        <textarea  rows="4" cols="30" placeholder="Mande uma mensagem :D" name="mensagem_cliente" id="mensagem" required></textarea>
+        <textarea  rows="4" cols="30" placeholder="Mande uma mensagem :D" name="mensagem_contato" id="mensagem" required></textarea>
         <p class="mensgem-vermelha">*: Campo obrigatório</p>
         <button id="enviar" type="submit">Enviar Dados</button>
      </form>
