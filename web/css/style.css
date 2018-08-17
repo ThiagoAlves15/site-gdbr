@@ -1,0 +1,155 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15/05/2018, 07:55:19
+    Author     : grazielegalvao
+*/
+
+/*Media Query - Print */
+@media print {
+    .header {
+        display: none;
+    }
+    
+    .headname {
+        display: none;
+    }
+}
+
+
+body {
+  background: white;
+}
+
+.banner{
+        padding: 15px;
+        font-size: 18px;
+        min-height: 300px;
+        background: #dbdfe5;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .banner.bg-alt{
+        background: #abb1b8;
+    }
+    
+.postsprincipais{
+        padding: 15px;
+        font-size: 18px;
+        min-height: 1200px;
+        background: whitesmoke;
+        margin-bottom: 10px;
+    }
+    .postsprincipais.bg-alt{
+        background: whitesmoke;
+    }
+
+.cardheader{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.figure-img img-fluid rounded {
+    max-width: 100%;
+    height: auto;
+}
+
+        
+.login{
+        padding: 15px;
+        font-size: 18px;
+        min-height: 700px;
+        background: #dbdfe5;
+        margin-bottom: 10px;
+    }
+    .login.bg-alt{
+        background: #abb1b8;
+    }
+
+/* Formulário de Login */
+@import "bourbon";
+
+body {
+	background: #eee !important;	
+}
+
+.wrapper {	
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.form-signin {
+    max-width: 700px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);  
+
+  .form-signin-heading,
+	.checkbox {
+	  margin-bottom: 30px;
+	}
+
+	.checkbox {
+	  font-weight: normal;
+	}
+
+	.form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+	input[type="text"] {
+	  margin-bottom: 1px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	}
+
+	input[type="password"] {
+	  margin-bottom: 20px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}
+}
+
+/* Tabela Tour */
+
+element.style {
+}
+table.wikitable > tr > th, table.wikitable > * > tr > th {
+    background-color: #eaecf0;
+    text-align: center;
+}
+
+table.wikitable > tr > th, table.wikitable > tr > td, table.wikitable > * > tr > th, table.wikitable > * > tr > td {
+    border: 1px solid #a2a9b1;
+    padding: 0.2em 0.4em;
+}
+user agent stylesheet
+th {
+    font-weight: bold;
+    text-align: -internal-center;
+}
+user agent stylesheet
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+
