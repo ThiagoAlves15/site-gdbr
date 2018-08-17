@@ -26,7 +26,5 @@ email_contato VARCHAR(100),
 telefone_contato VARCHAR(15), 
 celular_contato VARCHAR(15), 
 mensagem_contato VARCHAR(255) NOT NULL,
-administrador_id INTEGER UNSIGNED NOT NULL,
-PRIMARY KEY (id_contato),
-FOREIGN KEY (administrador_id) REFERENCES administradores(id_administrador)
+PRIMARY KEY (id_contato)
 );

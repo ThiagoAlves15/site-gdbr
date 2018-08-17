@@ -1,4 +1,4 @@
-function Client(name, email, tel, cel, mensa) {
+function Contato(name, email, tel, cel, mensa) {
   this.name = name.toString();
   this.email = email.toString();
   this.tel = tel.toString();
@@ -55,8 +55,8 @@ function send_data(){
   var mensa = document.getElementById("mensagem").value;
   
   if ((name) && (mensa) && (email || telefone || celular)){
-    var cli = new Client(name, email, telefone, celular, mensa);
-    alert (`Enviado os dados com sucesso!\nNome: ${cli.getName()}\nEmail: ${cli.getEmail()}\nTel: ${cli.getTel()}\nCel: ${cli.getCel()}\nObservação: ${cli.getMensa()}`);
+    var contato = new Contato(name, email, telefone, celular, mensa);
+    alert (`Enviado os dados com sucesso!\nNome: ${contato.getName()}\nEmail: ${contato.getEmail()}\nTel: ${contato.getTel()}\nCel: ${contato.getCel()}\nObservação: ${contato.getMensa()}`);
     window.location = "index.jsp"; // Redirecting to other page.
     return false;
   }

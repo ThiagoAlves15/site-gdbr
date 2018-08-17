@@ -49,10 +49,7 @@ function id( el ){
 }
 
 window.onload = function(){
-  id("whats").onkeyup = function(){
-    mascara( this, mtel );
-  };
-  
+ 
   $('.datepicker').datepicker({
     format: "dd/mm/yyyy",
     maxViewMode: 2,
@@ -73,7 +70,7 @@ window.onload = function(){
         if (!postagens[i]) { continue; }
         console.log(postagens[i]);
         imgsHTML += `
-          <img class="postagens__todas" id="${postagens[i].caminho_imagem_postagem}" src="/GDBR/assets/imgs/${postagens[i].caminho_imagem_postagem}" onclick="deletarImagem(${postagens[i].id})">
+          <img class="postagens__todas" id="${postagens[i].caminho_imagem_postagem}" src="/GDBR/assets/imgs/${postagens[i].caminho_imagem_postagem}" onclick="deletarPostagem(${postagens[i].id})">
         `
     }
     $('.showcase__background').append(imgsHTML);
