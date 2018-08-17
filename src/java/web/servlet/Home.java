@@ -18,19 +18,7 @@ public class Home extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContext sc = req.getServletContext();
         try {
-            HttpSession session = req.getSession();
-            ServicoAdministrador sAdministrador = new ServicoAdministradorImpl();
-            Administrador pBD = sAdministrador.findByLogin("DonaMaria");
-            
-            session.setAttribute("administradorId", pBD.getId());
-            session.setAttribute("whats", pBD.getWhats());
-            session.setAttribute("email", pBD.getEmail());
-            System.out.println("a sessao aqui o: "+session.getAttribute("administradorId"));
-            System.out.println("a whats aqui o: "+session.getAttribute("whats"));
-            System.out.println("a email aqui o: "+session.getAttribute("email"));
-            if (session.getAttribute("administradorId") != null) {
-                sc.getRequestDispatcher("/dynamic/jsp/index.jsp").forward(req, resp);
-            }
+            sc.getRequestDispatcher("/dynamic/jsp/index.jsp").forward(req, resp);
         } catch(Exception e) {
             sc.getRequestDispatcher("/login").forward(req, resp);
         }

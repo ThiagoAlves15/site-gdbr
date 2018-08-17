@@ -16,7 +16,7 @@ public class PostagemDAOMariaDB implements PostagemDAO{
         try{
             Class.forName("org.mariadb.jdbc.Driver");
             
-            conexao = DriverManager.getConnection("jdbc:mariadb://localhost:3306/gdbr", "thiago", "1234");
+            conexao = DriverManager.getConnection("jdbc:mariadb://localhost:3306/gdbr", "grazi", "1234");
             System.out.println("foi");
         } catch (Exception e){
             System.out.print("\nErro de conexão PostagemDAOmariadb.");
@@ -47,7 +47,7 @@ public class PostagemDAOMariaDB implements PostagemDAO{
     public Postagem findById(Long id) {
         Postagem i = null;
         try{        
-            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from gdbr.postagens where id_postagem = ?");  
+            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from postagens where id_postagem = ?");  
             comandoSQLp.setLong(1, id);
             ResultSet rs = comandoSQLp.executeQuery();
             rs.next();
@@ -82,7 +82,7 @@ public class PostagemDAOMariaDB implements PostagemDAO{
         ArrayList<Postagem> postagens = new ArrayList<Postagem>();
         
         try{        
-            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from gdbr.postagens");  
+            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from postagens");  
             ResultSet rs = comandoSQLp.executeQuery();
             while(rs.next()) {
                 Postagem i = new Postagem();
@@ -109,12 +109,14 @@ public class PostagemDAOMariaDB implements PostagemDAO{
     }
 
     @Override
-    public Postagem update(Long id, String caminho) {
+    public Postagem update(Long id, String caminho, String titulo, String texto) {
         try {
-            String query = "update postagens set caminho_imagem_postagem = ? where id_postagem = ?";
+            String query = "update postagens set caminho_imagem_postagem = ?, titulo_postagem = ?, texto_postagem = ? where id_postagem = ?";
             PreparedStatement comandoSQLp = conexao.prepareStatement(query);
             comandoSQLp.setString(1, caminho);
-            comandoSQLp.setLong(2, id);
+            comandoSQLp.setString(2, titulo);
+            comandoSQLp.setString(3, texto);
+            comandoSQLp.setLong(4, id);
             comandoSQLp.executeQuery();
             comandoSQLp.close();
             return null;

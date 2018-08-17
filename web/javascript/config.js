@@ -49,10 +49,7 @@ function id( el ){
 }
 
 window.onload = function(){
-  id("whats").onkeyup = function(){
-    mascara( this, mtel );
-  };
-  
+ 
   $('.datepicker').datepicker({
     format: "dd/mm/yyyy",
     maxViewMode: 2,

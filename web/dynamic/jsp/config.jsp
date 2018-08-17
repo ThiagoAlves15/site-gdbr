@@ -30,8 +30,8 @@
         <form id="form_dados" name="form_dados" action="${pageContext.request.contextPath}/atualiza-administrador" method="post">
           <label for="login">Login:</label>
           <input type="text" placeholder="Login" name="login" id="login" maxlength="50">
-          <label for="whats">WhatsApp:</label>
-          <input type="text" placeholder="WhatsApp - (xx)xxxxx-xxxx" name="whats" id="whats" maxlength="15" required>
+          <label for="senha">Senha:</label>
+          <input type="password" placeholder="Senha" name="senha" id="senha" maxlength="30" required>
           <label for="email">Email:</label>
           <input type="email" placeholder="name@email.com" name="email" id="email" required>
           <button id="dados" type="submit">Enviar Dados</button>

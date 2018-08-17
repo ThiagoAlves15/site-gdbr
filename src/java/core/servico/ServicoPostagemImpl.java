@@ -34,9 +34,9 @@ public class ServicoPostagemImpl implements ServicoPostagem {
     }
 
     @Override
-    public Postagem update(Long id, String caminho) {
+    public Postagem update(Long id, String caminho, String titulo, String texto) {
         PostagemDAO iDao = new PostagemDAOMariaDB();
-        return iDao.update(id, caminho);
+        return iDao.update(id, caminho, titulo, texto);
     }
     
     @Override

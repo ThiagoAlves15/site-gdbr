@@ -36,9 +36,5 @@
     </div>
     <div class="showcase__background">
     </div>
-    <div class="footer">
-      <div id="whats" class="footer_info">WhatsApp: <span><%= request.getSession().getAttribute("whats") %></span></div>
-      <div id="email" class="footer_info">Email: <span><%= request.getSession().getAttribute("email") %></span></div>
-    </div>
   </body>
 </html>

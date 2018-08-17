@@ -37,10 +37,12 @@ public class AdicionaPostagem extends HttpServlet {
         
         Long administradorId = a;
         String caminho = req.getParameter("caminho");
+        String titulo = req.getParameter("titulo");
+        String texto = req.getParameter("texto");
         Timestamp criadoEm = new java.sql.Timestamp(new Date().getTime());
         
         ServicoPostagem sImg = new ServicoPostagemImpl();
-        Postagem postagem = new Postagem(caminho, criadoEm, administradorId);
+        Postagem postagem = new Postagem(caminho, titulo, texto, criadoEm, administradorId);
         sImg.insert(postagem);
         
         sc.getRequestDispatcher("/dynamic/jsp/config.jsp").forward(req, resp);

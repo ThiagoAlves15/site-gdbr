@@ -4,15 +4,13 @@ public class Administrador extends Identificador {
     private Long id;
     private String login;
     private String senha;
-    private String whats;
     private String email;
     
     public Administrador() {}
-    public Administrador(Long id, String login, String senha, String whats, String email){
+    public Administrador(Long id, String login, String senha, String email){
         super(id);
         this.setLogin(login);
         this.setSenha(senha);
-        this.setWhats(whats);
         this.setEmail(email);
     }
 
@@ -30,14 +28,6 @@ public class Administrador extends Identificador {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getWhats() {
-        return whats;
-    }
-
-    public void setWhats(String whats) {
-        this.whats = whats;
     }
 
     public String getEmail() {

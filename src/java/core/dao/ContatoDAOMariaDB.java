@@ -14,7 +14,7 @@ public class ContatoDAOMariaDB implements ContatoDAO{
         try{
             Class.forName("org.mariadb.jdbc.Driver");
             
-            conexao = DriverManager.getConnection("jdbc:mariadb://localhost:3306/portfolio", "thiago", "1234");
+            conexao = DriverManager.getConnection("jdbc:mariadb://localhost:3306/gdbr", "grazi", "1234");
             System.out.println("foi");
         } catch (Exception e){
             System.out.print("\nErro de conexão ContatoDAOmariadb.");
@@ -48,7 +48,7 @@ public class ContatoDAOMariaDB implements ContatoDAO{
     public Contato findById(Long id) {
         Contato c = null;
         try{        
-            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from portfolio.contatos where id_contato = ?");  
+            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from contatos where id_contato = ?");  
             comandoSQLp.setString(1, id.toString());
             ResultSet rs = comandoSQLp.executeQuery();
             System.out.println("Conectei..");
@@ -113,7 +113,7 @@ public class ContatoDAOMariaDB implements ContatoDAO{
         ArrayList<Contato> contatos = new ArrayList<Contato>();
         
         try{        
-            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from portfolio.contatos order by nome_contato desc");  
+            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from contatos order by nome_contato desc");  
             ResultSet rs = comandoSQLp.executeQuery();
             while(rs.next()) {
                 Contato c = new Contato();

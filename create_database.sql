@@ -4,7 +4,6 @@ CREATE TABLE IF NOT EXISTS administradores (
 id_administrador INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 login_administrador VARCHAR(50) NOT NULL, 
 senha_administrador VARCHAR(50) NOT NULL, 
-whats_administrador VARCHAR(15) NOT NULL, 
 email_administrador VARCHAR(100) NOT NULL, 
 PRIMARY KEY (id_administrador)
 );

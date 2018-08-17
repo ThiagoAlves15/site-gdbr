@@ -14,9 +14,9 @@ public class ServicoAdministradorImpl implements ServicoAdministrador {
     }
     
     @Override
-    public Administrador update(Long id, String whats, String email){
+    public Administrador update(Long id, String login, String senha, String email){
         AdministradorDAO iDao = new AdministradorDAOMariaDB();
-        return iDao.update(id, whats, email);
+        return iDao.update(id, login, senha, email);
     }
 
     @Override

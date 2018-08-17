@@ -15,7 +15,7 @@ public class AdministradorDAOMariaDB implements AdministradorDAO{
         try{
             Class.forName("org.mariadb.jdbc.Driver");
             
-            conexao = DriverManager.getConnection("jdbc:mariadb://localhost:3306/gdbr", "thiago", "1234");
+            conexao = DriverManager.getConnection("jdbc:mariadb://localhost:3306/gdbr", "grazi", "1234");
             System.out.println("foi");
         } catch (Exception e){
             System.out.println("\nErro de conexão AdministradorDAOmariadb.");
@@ -27,7 +27,7 @@ public class AdministradorDAOMariaDB implements AdministradorDAO{
     public Administrador findById(Long id) {
         Administrador p = null;
         try{        
-            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from gdbr.administradores where id_administrador = ?");  
+            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from administradores where id_administrador = ?");  
             comandoSQLp.setLong(1, id);
             ResultSet rs = comandoSQLp.executeQuery();
             rs.next();
@@ -35,7 +35,6 @@ public class AdministradorDAOMariaDB implements AdministradorDAO{
             p.setId((rs.getLong("id_administrador")));
             p.setLogin(rs.getString("login_administrador"));
             p.setSenha(rs.getString("senha_administrador"));
-            p.setWhats(rs.getString("whats_administrador"));
             p.setEmail(rs.getString("email_administrador"));
 
             comandoSQLp.close();
@@ -55,7 +54,7 @@ public class AdministradorDAOMariaDB implements AdministradorDAO{
     public Administrador findByLogin(String login){
         Administrador p = null;
         try{        
-            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from gdbr.administradores where login_administrador = ?");  
+            PreparedStatement comandoSQLp = conexao.prepareStatement("select * from administradores where login_administrador = ?");  
             comandoSQLp.setString(1, login);
             ResultSet rs = comandoSQLp.executeQuery();
             System.out.println("Conectado...");
@@ -64,7 +63,6 @@ public class AdministradorDAOMariaDB implements AdministradorDAO{
             p.setId((rs.getLong("id_administrador")));
             p.setLogin(rs.getString("login_administrador"));
             p.setSenha(rs.getString("senha_administrador"));
-            p.setWhats(rs.getString("whats_administrador"));
             p.setEmail(rs.getString("email_administrador"));
             comandoSQLp.close();
             rs.close();
@@ -80,13 +78,14 @@ public class AdministradorDAOMariaDB implements AdministradorDAO{
     }
     
     @Override
-    public Administrador update(Long id, String whats, String email) {
+    public Administrador update(Long id, String login, String senha, String email) {
         try {
-            String query = "update administradores set whats_administrador = ?, email_administrador = ? where id_administrador = ?";
+            String query = "update administradores set login_administrador = ?, senha_administrador = ?, email_administrador = ? where id_administrador = ?";
             PreparedStatement comandoSQLp = conexao.prepareStatement(query);
-            comandoSQLp.setString(1, whats);
-            comandoSQLp.setString(2, email);
-            comandoSQLp.setLong(3, id);
+            comandoSQLp.setString(1, login);
+            comandoSQLp.setString(2, senha);
+            comandoSQLp.setString(3, email);
+            comandoSQLp.setLong(4, id);
             comandoSQLp.executeQuery();
             comandoSQLp.close();
             return null;

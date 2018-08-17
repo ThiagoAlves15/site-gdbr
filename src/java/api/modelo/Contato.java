@@ -9,24 +9,14 @@ public class Contato extends Identificador {
     private String telefone; 
     private String celular; 
     private String mensagem;
-    private Long administradorId;
     
     public Contato(){}
-    public Contato(String nome, String email, String telefone, String celular, String mensagem, Long administradorId){
+    public Contato(String nome, String email, String telefone, String celular, String mensagem){
         this.setNome(nome);
         this.setEmail(email);
         this.setTelefone(telefone);
         this.setCelular(celular);
-        this.setMensagem(mensagem);
-        this.setAdministrador(administradorId);          
-    }
-
-    public Long getAdministrador() {
-        return administradorId;
-    }
-
-    public void setAdministrador(Long administradorId) {
-        this.administradorId = administradorId;
+        this.setMensagem(mensagem);    
     }
 
     public String getNome() {

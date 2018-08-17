@@ -23,12 +23,13 @@ public class AtualizaAdministrador extends HttpServlet {
         System.out.println("aqui o session no atualiza administrador: " + a);
         
         Long administradorId = a;
-        String whats = req.getParameter("whats");
+        String login = req.getParameter("login");
+        String senha = req.getParameter("senha");
         String email = req.getParameter("email");
         
         ServicoAdministrador sPar = new ServicoAdministradorImpl();
 
-        sPar.update(administradorId, whats, email);
+        sPar.update(administradorId, login, senha, email);
         sc.getRequestDispatcher("/dynamic/jsp/config.jsp").forward(req, resp);
     }
 }
