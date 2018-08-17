@@ -1,38 +1,27 @@
-function Postagem(){
-var titulo = getElementById("titulo").value;
-var subtitulo = getElementById("subtitulo").value;
-var postagem = getElementById("postagem").value;
-var imagem = getElementById("imagemdestaque").value;
-var hora = Date().getTime();
-
-var home = getElementById("home");
-
-var newdiv = document.createElement("div");
-newdiv.className+= "card text-center";
-newdiv.appendAfter(home);
-
-var newimg = document.createElement("img");
-newimg.className+= "card-img-top";
-
-var newdiv = document.createElement("div");
-newdiv.className+= "card-body";
-
-var newtitulo = document.createElement("h5");
-newtitulo.className+= "card-title";
-
-var newsubtitulo = document.createElement("p");
-newsubtitulo.className+= "card-text";
-
-var newpostagem = document.createElement("p");
-newpostagem.className+= "card-text";
-   
-var newhora = document.createElement("p");
-newhora.className+= = "card-text";
-var newhora = document.createElement("small");
-newhora.className+= "text-muted";
-
-var newseparador = document.createElement("hr");
-
-    
-    
-}
+$(document).ready(function() {
+    $.ajax({
+       'url': '/GDBR/postagens',
+       'method': 'GET',
+    }).done(function(data) {
+        let imgsHTML = "";
+        let postagens = data.postagens;
+        console.log(postagens);
+        for (let i = 0, size = postagens.length; i < size; i++) {
+            if (!postagens[i]) { continue; }
+            
+            console.log(postagens[i]);
+            
+            imgsHTML += `
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img class="card-img-top" id="${postagens[i].caminho_imagem_postagem}" src="GDBR/img/${postagens[i].caminho_imagem_postagem}">
+                        <h5 class="card-title">${postagens[i].titulo_postagem}.</h5>
+                        <p class="card-text">${postagens[i].texto_postagem} </p>
+                    <hr>
+                    </div>
+                </div>
+            `
+        }
+        $('.postagens__showcase').append(imgsHTML);
+    });
+});

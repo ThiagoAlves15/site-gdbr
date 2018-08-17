@@ -51,7 +51,7 @@
                     <div class="painel-admin">
                         <h3>Contato</h3>
                         <hr>
-                        <form id="form_id" name="myform" action="${pageContext.request.contextPath}/form" method="post">
+                        <form id="form_id" name="myform" action="${pageContext.request.contextPath}/contato" method="post">
                           <label for="name">Nome Completo *</label>
                           <input type="text" placeholder="Nome Completo" name="nome_contato" id="name" required>
                           <div class="tipo-contato">

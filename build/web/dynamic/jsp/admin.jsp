@@ -11,7 +11,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <script src="${pageContext.request.contextPath}/js/VisualizarPost.js"></script>
-        <script src="${pageContext.request.contextPath}/js/submitPost.js"></script>
+        <script src="${pageContext.request.contextPath}/js/ListaParaDeletar.js"></script>
     </head>
     
     
@@ -102,7 +102,7 @@
                 <div class="container">
                   <div class="container header">
                     <label>Escolher foto para deletar</label>
-                    <div class="showcase__background">
+                    <div class="postagens__showcase">
                     </div>
                   </div>
                 </div>

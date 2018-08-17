@@ -90,9 +90,11 @@ public class PostagemDAOMariaDB implements PostagemDAO{
                 Postagem i = new Postagem();
                 i = new Postagem();
                 i.setId(rs.getLong(1));
-                i.setCaminho(rs.getString(2));
-                i.setCriadoEm(rs.getTimestamp(3)); 
-                i.setAdministrador(rs.getLong(4));
+                i.setTitulo(rs.getString(2));
+                i.setTexto(rs.getString(3));
+                i.setCaminho(rs.getString(4));
+                i.setCriadoEm(rs.getTimestamp(5)); 
+                i.setAdministrador(rs.getLong(6));
                 
                 postagens.add(i);
             }

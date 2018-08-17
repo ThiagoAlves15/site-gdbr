@@ -11,6 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+    <script src="${pageContext.request.contextPath}/js/LerMais.js"></script>
   </head>
   <body>
         
@@ -56,35 +57,8 @@
                         <h3 id="home">Home</h3>
                         </div>
                         <hr>
-                        <div class="card text-center">
-                            <img class="card-img-top" src="${pageContext.request.contextPath}/img/noticia1.png" alt="Card image cap">
-                            <div class="card-body">
-                              <h5 class="card-title">THE LONGSHOT ANUNCIA OFICIALMENTE A PRIMEIRA TURNÊ.</h5>
-                              <p class="card-text">A poucos minutos, Billie Joe Armstrong, anunciou no Instagram as 19 datas da turnê da The Longshot pela América do Norte. </p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                              <input class="btn btn-success" type="button" value="Ler Mais" id="lermais1"/>
-                              <hr>
-                            </div>
-                        </div>
-                        <div class="card text-center">
-                            <img class="card-img-top" src="${pageContext.request.contextPath}/img/noticia2.jpg" alt="Card image cap">
-                            <div class="card-body">
-                              <h5 class="card-title">EP DA LONGSHOT TERÁ VERSÃO EXCLUSIVA PARA A RECORD STORE DAY.</h5>
-                              <p class="card-text">Detalhe, o disco foi customizado pelo próprio Billie Joe!</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                              <input class="btn btn-success" type="button" value="Ler Mais" id="lermais2" onclick="LerMais()""/>
-                              <hr>
-                            </div>
-                        </div>
-                        <div class="card text-center">
-                            <img class="card-img-top" src="${pageContext.request.contextPath}/img/noticia33.png" alt="Card image cap">
-                            <div class="card-body">
-                              <h5 class="card-title">OUÇA AGORA O NOVO ÁLBUM DE BILLIE JOE ARMSTRONG E ASSISTA AO CLIPE DE ''LOVE IS FOR LOSERS'</h5>
-                              <p class="card-text">Depois de vários dias de mistério, uma conta privada no Instagram que depois se tornou pública e um EP com 3 músicas lançado na semana passada, finalmente foi liberado o álbum completo do novo projeto paralelo de Billie Joe Armstrong, The Longshot.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                              <input class="btn btn-success" type="button" value="Ler Mais" id="lermais3" onclick="LerMais()"/>
-                              <hr>
-                            </div>
+                        <div class="postagens__showcase">
+                            
                         </div>
                     </div>
                 </div>
