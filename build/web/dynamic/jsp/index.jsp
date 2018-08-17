@@ -25,25 +25,25 @@
 
                 <!-- Botões -->
                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <a href="index.html" type="button" class="btn btn-success">Home</a>
-                    <a href="tour.html" type="button" class="btn btn-success">Tour</a>
+                    <a href="${pageContext.request.contextPath}/dynamic/jsp/index.jsp" type="button" class="btn btn-success">Home</a>
+                    <a href="${pageContext.request.contextPath}/dynamic/jsp/tour.jsp" type="button" class="btn btn-success">Tour</a>
                     
                 <div class="btn-group">
-                  <a href="banda.html" type="button" class="btn btn-success">Banda</a>
+                  <a href="${pageContext.request.contextPath}/dynamic/jsp/banda.jsp" type="button" class="btn btn-success">Banda</a>
                   <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="caret"></span>
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a href="billie-joe.html">Billie Joe</a></li>
-                    <li><a href="mike-dirnt.html">Mike Dirnt</a></li>
-                    <li><a href="tre-cool.html">Tré Cool</a></li>
+                    <li><a href="${pageContext.request.contextPath}/dynamic/jsp/billie-joe.jsp">Billie Joe</a></li>
+                    <li><a href="${pageContext.request.contextPath}/dynamic/jsp/mike-dirnt.jsp">Mike Dirnt</a></li>
+                    <li><a href="${pageContext.request.contextPath}/dynamic/jsp/tre-cool.jsp">Tré Cool</a></li>
                   </ul>
                 </div>
                     
-                    <a href="quem-somos.html" type="button" class="btn btn-success">Quem Somos</a>
-                    <a href="contato.html" type="button" class="btn btn-success">Contato</a>
-                    <a href="login.html" type="button" class="btn btn-success">Login</a>
+                    <a href="${pageContext.request.contextPath}/dynamic/jsp/quem-somos.jsp" type="button" class="btn btn-success">Quem Somos</a>
+                    <a href="${pageContext.request.contextPath}/dynamic/jsp/contato.jsp" type="button" class="btn btn-success">Contato</a>
+                    <a href="${pageContext.request.contextPath}/dynamic/jsp/login.jsp" type="button" class="btn btn-success">Login</a>
                 </div> 
                
             </div>
