@@ -45,6 +45,6 @@ public class AdicionaPostagem extends HttpServlet {
         Postagem postagem = new Postagem(caminho, titulo, texto, criadoEm, administradorId);
         sImg.insert(postagem);
         
-        sc.getRequestDispatcher("/dynamic/jsp/config.jsp").forward(req, resp);
+        sc.getRequestDispatcher("/dynamic/jsp/admin.jsp").forward(req, resp);
     }
 }

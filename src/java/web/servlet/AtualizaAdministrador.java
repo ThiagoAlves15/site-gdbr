@@ -30,6 +30,6 @@ public class AtualizaAdministrador extends HttpServlet {
         ServicoAdministrador sPar = new ServicoAdministradorImpl();
 
         sPar.update(administradorId, login, senha, email);
-        sc.getRequestDispatcher("/dynamic/jsp/config.jsp").forward(req, resp);
+        sc.getRequestDispatcher("/dynamic/jsp/admin.jsp").forward(req, resp);
     }
 }

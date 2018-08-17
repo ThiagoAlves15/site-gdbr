@@ -71,7 +71,7 @@ public class AdministradorDAOMariaDB implements AdministradorDAO{
         }           
         catch (Exception e)
         {
-          System.out.println("\nErro de conexão...Find by nome contato.");
+          System.out.println("\nErro de conexão...Find by login administrador.");
           e.printStackTrace();
         }
         return p;

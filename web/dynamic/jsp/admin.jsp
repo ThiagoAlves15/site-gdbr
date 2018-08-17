@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>        
@@ -24,7 +25,7 @@
                    <img class="banner" src="${pageContext.request.contextPath}/img/banner.png" alt="banner"/>     
                 </div>
 
-                <!-- Botões -->
+                <!-- BotÃµes -->
                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                     <a href="${pageContext.request.contextPath}/dynamic/jsp/index.jsp" type="button" class="btn btn-success">Home</a>
                     <a href="${pageContext.request.contextPath}/dynamic/jsp/tour.jsp" type="button" class="btn btn-success">Tour</a>
@@ -38,7 +39,7 @@
                   <ul class="dropdown-menu">
                     <li><a href="${pageContext.request.contextPath}/dynamic/jsp/billie-joe.jsp">Billie Joe</a></li>
                     <li><a href="${pageContext.request.contextPath}/dynamic/jsp/mike-dirnt.jsp">Mike Dirnt</a></li>
-                    <li><a href="${pageContext.request.contextPath}/dynamic/jsp/tre-cool.jsp">Tré Cool</a></li>
+                    <li><a href="${pageContext.request.contextPath}/dynamic/jsp/tre-cool.jsp">TrÃ© Cool</a></li>
                   </ul>
                 </div>
                     
@@ -56,25 +57,21 @@
                     <div class="painel-admin">
                         <h3>Adicionar Postagem</h3>
                         <hr>
-                            <form>
+                            <form id="form_upload" name="form_upload" action="${pageContext.request.contextPath}/adiciona-postagem" method="post">
                             <div class="form-group">
-                                <label for="titulo">Título</label>
-                                <input type="text" class="form-control" id="titulo" placeholder="Título da Postagem">
+                                <label for="titulo">Titulo</label>
+                                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="TÃ­tulo da Postagem">
                               </div>
-                                <div class="form-group">
-                                <label for="subtitulo">Subtítulo</label>
-                                <input type="text" class="form-control" id="subtitulo" placeholder="Subtítulo">
-                                </div>
                               <div class="form-group">
                                 <label for="postagem">Postagem</label>
-                                <textarea class="form-control" id="postagem" rows="5"></textarea>
+                                <textarea class="form-control" id="postagem" name="texto" rows="5"></textarea>
                               </div>
                               <div class="form-group">
                                 <label for="imagemdestaque">Imagem de Destaque</label>
-                                <input type="file" class="form-control-file" id="imagemdestaque">
+                                <input type="file" class="form-control-file" name="caminho" id="imagemdestaque">
                               </div>
-                                <button class="btn btn-success" type="button" onclick="VisualizarPost()">Visualizar</button>
-                              <input class="btn btn-success" type="submit" value="Submeter" id="submit" onclick="submitPost()"/>
+                              <button class="btn btn-success" type="button" onclick="VisualizarPost()">Visualizar</button>
+                              <input class="btn btn-success" type="submit" value="Submeter" id="submit"/>
                             </form>
                     </div>
                     
@@ -83,7 +80,36 @@
 
                     </div>
                 </div>
+              <div class="container">
+                <div class="container header">
+                  <label for="dados">Alterar seus dados</label>
+                </div>
+                <form id="form_dados" name="form_dados" action="${pageContext.request.contextPath}/atualiza-administrador" method="post">
+                  <label for="login">Login:</label>
+                  <input type="text" placeholder="Login" name="login" id="login" maxlength="50">
+                  <label for="senha">Senha:</label>
+                  <input type="password" placeholder="Senha" name="senha" id="senha" maxlength="30" required>
+                  <label for="email">Email:</label>
+                  <input type="email" placeholder="name@email.com" name="email" id="email" required>
+                  <button id="dados" type="submit">Enviar Dados</button>
+                </form>
+              </div>
+                  
+              <div class="container">
+                <div class="container header">
+                  <label for="procurar">Deletar fotos da página principal</label>
+                </div>
+                <div class="container">
+                  <div class="container header">
+                    <label>Escolher foto para deletar</label>
+                    <div class="showcase__background">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <hr>
         
         </div>
+    </body>
+</html>

@@ -1,6 +1,5 @@
 package api.modelo;
 
-import java.util.List;
 
 public class Contato extends Identificador {
     private Long id;

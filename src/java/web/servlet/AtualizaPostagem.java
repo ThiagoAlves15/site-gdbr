@@ -28,9 +28,11 @@ public class AtualizaPostagem extends HttpServlet {
         
         Long administradorId = a;
         String caminho = req.getParameter("caminho");
+        String titulo = req.getParameter("titulo");
+        String texto = req.getParameter("texto");
         
         ServicoPostagem sImg = new ServicoPostagemImpl();
-        sImg.update(administradorId, caminho);
-        sc.getRequestDispatcher("/dynamic/jsp/config.jsp").forward(req, resp);
+        sImg.update(administradorId, caminho, titulo, texto);
+        sc.getRequestDispatcher("/dynamic/jsp/admin.jsp").forward(req, resp);
     }
 }

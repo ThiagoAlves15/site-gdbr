@@ -25,14 +25,13 @@ public class ContatoDAOMariaDB implements ContatoDAO{
     @Override
     public Contato insert(Contato contato) {
         try {
-            String query = "insert into contatos (nome_contato, email_contato, telefone_contato, celular_contato, mensagem_contato, administrador_id) values(?, ?, ?, ?, ?, ?)";
+            String query = "insert into contatos (nome_contato, email_contato, telefone_contato, celular_contato, mensagem_contato) values(?, ?, ?, ?, ?)";
             PreparedStatement comandoSQLp = conexao.prepareStatement(query);
             comandoSQLp.setString(1, contato.getNome());
             comandoSQLp.setString(2, contato.getEmail());
             comandoSQLp.setString(3, contato.getTelefone());
             comandoSQLp.setString(4, contato.getCelular());
             comandoSQLp.setString(5, contato.getMensagem());
-            comandoSQLp.setLong(6, contato.getAdministrador());
             comandoSQLp.executeQuery();
             comandoSQLp.close();
             return contato;
@@ -59,8 +58,7 @@ public class ContatoDAOMariaDB implements ContatoDAO{
             c.setEmail(rs.getString(3));
             c.setTelefone(rs.getString(4));
             c.setCelular(rs.getString(5));
-            c.setMensagem(rs.getString(6));
-            c.setAdministrador(rs.getLong(7));     
+            c.setMensagem(rs.getString(6));     
 
             comandoSQLp.close();
             rs.close();
@@ -75,20 +73,18 @@ public class ContatoDAOMariaDB implements ContatoDAO{
     }
 
     @Override
-    public ArrayList<Contato> findByNomeContato(Long administradorId, String nome){
+    public ArrayList<Contato> findByNomeContato(String nome){
         ArrayList<Contato> contatos = new ArrayList<Contato>();
         
         try {
-            String query = "select * from contatos where contatos.administrador_id = ? and contatos.nome ilike '?%' order by contatos.nome asc";
+            String query = "select * from contatos where nome_contato ilike '?%' order by nome_contato asc";
             PreparedStatement comandoSQLp = conexao.prepareStatement(query);
-            comandoSQLp.setLong(1, administradorId);
-            comandoSQLp.setString(2, nome);
+            comandoSQLp.setString(1, nome);
             ResultSet rs = comandoSQLp.executeQuery();
             
             while(rs.next()) {
                 Contato c = new Contato();
                 c.setId(rs.getLong("id"));
-                c.setAdministrador(rs.getLong("administradorId"));
                 c.setNome(rs.getString("nome"));
                 c.setEmail(rs.getString("email"));
                 c.setTelefone(rs.getString("telefone"));
@@ -118,7 +114,6 @@ public class ContatoDAOMariaDB implements ContatoDAO{
             while(rs.next()) {
                 Contato c = new Contato();
                 c.setId(rs.getLong("id"));
-                c.setAdministrador(rs.getLong("administradorId"));
                 c.setNome(rs.getString("nome"));
                 c.setEmail(rs.getString("email"));
                 c.setTelefone(rs.getString("telefone"));

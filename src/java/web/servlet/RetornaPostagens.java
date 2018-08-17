@@ -36,10 +36,12 @@ public class RetornaPostagens extends HttpServlet {
 
             for (Postagem p : postagens) {
                 dataObject = new JSONObject();
-                dataObject.put("id", i.getId());
-                dataObject.put("caminho_imagem_postagem", i.getCaminho());
-                dataObject.put("administrador_id", i.getAdministrador());
-                dataObject.put("criado_em_postagem", i.getCriadoEm());
+                dataObject.put("id", p.getId());
+                dataObject.put("caminho_imagem_postagem", p.getCaminho());
+                dataObject.put("titulo_postagem", p.getTitulo());
+                dataObject.put("texto_postagem", p.getTexto());
+                dataObject.put("administrador_id", p.getAdministrador());
+                dataObject.put("criado_em_postagem", p.getCriadoEm());
                 jsonArray.put(dataObject);
             }
             

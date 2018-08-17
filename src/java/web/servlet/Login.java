@@ -47,8 +47,8 @@ public class Login extends HttpServlet {
         if (p != null && p.getSenha().equals(senha)) {
             try {
                 session.setAttribute("administradorLogado", p);
-                session.setAttribute("nome_administrador", p.getLogin());
-                sc.getRequestDispatcher("/config").forward(req, resp);
+                session.setAttribute("login_administrador", p.getLogin());
+                sc.getRequestDispatcher("/admin").forward(req, resp);
             } catch(Exception e) {
                System.out.println("erro ao comunicar com servidor.");
                System.out.println(e);

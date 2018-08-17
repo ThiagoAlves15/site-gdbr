@@ -27,11 +27,13 @@ public class PostagemDAOMariaDB implements PostagemDAO{
     @Override
     public Postagem insert(Postagem postagem) {
         try {
-            String query = "insert into postagens (caminho_imagem_postagem, criado_em_postagem, administrador_id) values(?, ?, ?)";
+            String query = "insert into postagens (titulo_postagem, texto_postagem, caminho_imagem_postagem, criado_em_postagem, administrador_id) values(?, ?, ?, ?, ?)";
             PreparedStatement comandoSQLp = conexao.prepareStatement(query);
-            comandoSQLp.setString(1, postagem.getCaminho());
-            comandoSQLp.setTimestamp(2, postagem.getCriadoEm());
-            comandoSQLp.setLong(3, postagem.getAdministrador());
+            comandoSQLp.setString(1, postagem.getTitulo());
+            comandoSQLp.setString(2, postagem.getTexto());
+            comandoSQLp.setString(3, postagem.getCaminho());
+            comandoSQLp.setTimestamp(4, postagem.getCriadoEm());
+            comandoSQLp.setLong(5, postagem.getAdministrador());
             comandoSQLp.executeQuery();
             comandoSQLp.close();
             return postagem;

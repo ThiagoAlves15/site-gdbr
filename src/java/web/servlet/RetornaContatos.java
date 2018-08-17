@@ -35,13 +35,12 @@ public class RetornaContatos extends HttpServlet {
 
             for (Contato contato : contatos) {
                 dataObject = new JSONObject();
-                dataObject.put("id_contatos", contatos.getId());
-                dataObject.put("nome_contatos", contatos.getNome());
-                dataObject.put("email_contatos", contatos.getEmail());
-                dataObject.put("telefone_contatos", contatos.getTelefone());
-                dataObject.put("celular_contatos", contatos.getCelular());
-                dataObject.put("mensagem_contatos", contatos.getMensagem());
-                dataObject.put("administrador_id", contatos.getAdministrador());
+                dataObject.put("id_contatos", contato.getId());
+                dataObject.put("nome_contatos", contato.getNome());
+                dataObject.put("email_contatos", contato.getEmail());
+                dataObject.put("telefone_contatos", contato.getTelefone());
+                dataObject.put("celular_contatos", contato.getCelular());
+                dataObject.put("mensagem_contatos", contato.getMensagem());
                 jsonArray.put(dataObject);
             }
             
